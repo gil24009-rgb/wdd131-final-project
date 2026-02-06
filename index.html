@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[Park Name]</title>
-    <script type="module" crossorigin src="/wdd131-final-project/assets/main-m1x4BIYQ.js"></script>
-    <link rel="modulepreload" crossorigin href="/wdd131-final-project/assets/setHeaderFooter-CCW-zev5.js">
-    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/setHeaderFooter-BKcvGP1t.css">
+    <script type="module" crossorigin src="/wdd131-final-project/assets/main-DckWW_VX.js"></script>
+    <link rel="modulepreload" crossorigin href="/wdd131-final-project/assets/navigation-DdtNTURt.js">
+    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/navigation-BhXo30sV.css">
     <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/main-BQS4udl4.css">
   </head>
 
@@ -47,12 +47,26 @@
             </svg>
           </a>
 
-          <button id="global-nav-toggle" aria-label="Global navigation menu button">
-            <svg class="icon" focusable="false" aria-hidden="true">
-              <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            Menu
-          </button>
+          <button
+  id="global-nav-toggle"
+  class="global-nav__toggle"
+  aria-expanded="false"
+  aria-label="Open Menu"
+>
+  <div class="global-nav__toggle--closed">
+    <svg class="icon" focusable="false" aria-hidden="true">
+      <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#menu"></use>
+    </svg>
+    <span class="visually-hidden">Open</span> Menu
+  </div>
+
+  <div class="global-nav__toggle--open">
+    <svg class="icon" focusable="false" aria-hidden="true">
+      <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#close"></use>
+    </svg>
+    Close
+  </div>
+</button>
         </div>
       </div>
 

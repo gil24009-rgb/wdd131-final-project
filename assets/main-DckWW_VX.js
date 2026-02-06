@@ -1,0 +1,2 @@
+import{g as a,a as i,s as o,e as r,m as s}from"./navigation-DdtNTURt.js";function c(n){const t=document.querySelector(".intro");t&&(t.innerHTML=`<h1>${n.fullName}</h1>
+    <p>${n.description}</p>`)}function f(n){const t=document.querySelector(".info");if(!t)return;const e=n.map(s);t.insertAdjacentHTML("afterbegin",e.join(""))}async function m(){const n=await a(),t=i(n.images);o(n),c(n),f(t),r()}m();
