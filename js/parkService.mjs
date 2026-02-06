@@ -1,14 +1,12 @@
 // parkService.mjs
-// Fetches park data from the NPS API and provides home page link data.
+// Fetches data from the NPS API for the site.
 
 const baseUrl = "https://developer.nps.gov/api/v1/";
 const apiKey = import.meta.env.VITE_NPS_API_KEY;
 
-// Unit 3 instruction: final park code is yell
+// Keep Yellowstone for this project
 const parkCode = "yell";
 
-// Base link data for the home page.
-// Images will be injected from the API response.
 const parkInfoLinks = [
   {
     name: "Current Conditions &#x203A;",
@@ -50,8 +48,6 @@ export async function getParkData() {
 }
 
 export function getInfoLinks(images = []) {
-  // We skip index 0 because it is used as the hero banner image.
-  // Starting at index 2 helps keep variety and avoids repeating the hero image.
   const startIndex = 2;
 
   return parkInfoLinks.map((item, index) => {
@@ -63,4 +59,14 @@ export function getInfoLinks(images = []) {
       alt: imageObj?.altText || "Park information image"
     };
   });
+}
+
+export async function getAlertsData(parkCodeParam) {
+  const result = await getJson(`alerts?parkCode=${parkCodeParam}&limit=10`);
+  return result.data || [];
+}
+
+export async function getVisitorCenterData(parkCodeParam) {
+  const result = await getJson(`visitorcenters?parkCode=${parkCodeParam}&limit=50`);
+  return result.data || [];
 }

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
-    <script type="module" src="./js/main.js"></script>
+    <title>Current Conditions</title>
+    <script type="module" src="./js/conditions.js"></script>
   </head>
 
   <body>
@@ -53,9 +53,7 @@
         </div>
       </div>
 
-      <div id="park-header">
-        <!-- setHeaderFooter will inject banner and title -->
-      </div>
+      <div id="park-header"></div>
 
       <nav id="local-nav" class="park-nav" aria-label="Park navigation">
         <ul>
@@ -104,8 +102,28 @@
     </header>
 
     <main id="main">
-      <section class="intro"></section>
-      <section class="info"></section>
+      <h1>Current Conditions</h1>
+
+      <section class="alerts" aria-labelledby="alerts-title">
+        <h2 id="alerts-title">Alerts</h2>
+        <ul class="alerts-list"></ul>
+      </section>
+
+      <section class="visitor" aria-labelledby="visitor-title">
+        <h2 id="visitor-title">Visitor Services</h2>
+        <details name="current-details">
+          <summary>Visitor Centers</summary>
+          <ul class="visitor-centers"></ul>
+        </details>
+      </section>
+
+      <section class="activities" aria-labelledby="activities-title">
+        <h2 id="activities-title">Activities</h2>
+        <details name="current-details">
+          <summary>All Activities</summary>
+          <ul class="activities-list"></ul>
+        </details>
+      </section>
     </main>
 
     <footer id="park-footer"></footer>
