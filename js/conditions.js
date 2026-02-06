@@ -5,6 +5,7 @@ import "../css/conditions.css";
 import { getParkData, getAlertsData, getVisitorCenterData } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { alertTemplate, visitorCenterTemplate, activityTemplate } from "./templates.mjs";
+import { enableNavigation } from "./navigation.mjs";
 
 function setAlerts(alerts) {
   const list = document.querySelector(".alerts-list");
@@ -53,6 +54,7 @@ async function init() {
   setVisitorCenters(centers);
 
   setActivities(parkData.activities);
+ enableNavigation();
 }
 
 init();
