@@ -22,7 +22,7 @@
     <p>${((l=(c=(i=e.contacts)==null?void 0:i.phoneNumbers)==null?void 0:c[0])==null?void 0:l.phoneNumber)||"Not Available"}</p>
   </div>`}function T(e){let t="information";switch(e.category){case"Park Closure":t="closure";break;case"Caution":t="caution";break;case"Danger":t="danger";break;case"Information":t="information";break;default:t=(e.category||"information").toLowerCase()}return`<li class="alert">
     <svg class="icon" focusable="false" aria-hidden="true">
-      <use xlink:href="/images/sprite.symbol.svg#alert-${t}"></use>
+      <use xlink:href="${`/wdd131-final-project/images/sprite.symbol.svg#alert-${t}`}"></use>
     </svg>
     <div>
       <h3 class="alert-${t}">${e.title}</h3>
