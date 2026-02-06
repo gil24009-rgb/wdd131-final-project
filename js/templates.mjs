@@ -44,26 +44,14 @@ export function footerTemplate(data) {
 }
 
 export function alertTemplate(alert) {
-  let alertType = "information";
+  let alertType;
 
-  switch (alert.category) {
-    case "Park Closure":
-      alertType = "closure";
-      break;
-    case "Caution":
-      alertType = "caution";
-      break;
-    case "Danger":
-      alertType = "danger";
-      break;
-    case "Information":
-      alertType = "information";
-      break;
-    default:
-      alertType = (alert.category || "information").toLowerCase();
+  if (alert.category === "Park Closure") {
+    alertType = "closure";
+  } else {
+    alertType = alert.category.toLowerCase();
   }
 
-  // Important: BASE_URL includes your GitHub Pages repo base path
   const spriteHref = `${import.meta.env.BASE_URL}images/sprite.symbol.svg#alert-${alertType}`;
 
   return `<li class="alert">
