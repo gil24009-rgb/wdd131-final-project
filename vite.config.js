@@ -1,8 +1,8 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
+import { resolve } from "path";
 
 export default defineConfig({
-  base: "/wdd131/",
+  base: "/wdd131-final-project/",
   build: {
     outDir: "dist",
     rollupOptions: {
