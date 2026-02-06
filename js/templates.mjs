@@ -63,9 +63,12 @@ export function alertTemplate(alert) {
       alertType = (alert.category || "information").toLowerCase();
   }
 
+  // Important: BASE_URL includes your GitHub Pages repo base path
+  const spriteHref = `${import.meta.env.BASE_URL}images/sprite.symbol.svg#alert-${alertType}`;
+
   return `<li class="alert">
     <svg class="icon" focusable="false" aria-hidden="true">
-      <use xlink:href="/images/sprite.symbol.svg#alert-${alertType}"></use>
+      <use xlink:href="${spriteHref}"></use>
     </svg>
     <div>
       <h3 class="alert-${alertType}">${alert.title}</h3>
