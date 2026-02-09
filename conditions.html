@@ -3,146 +3,283 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Current Conditions</title>
-    <script type="module" crossorigin src="/wdd131-final-project/assets/conditions-D_IPG61a.js"></script>
-    <link rel="modulepreload" crossorigin href="/wdd131-final-project/assets/navigation-DdtNTURt.js">
-    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/navigation-BhXo30sV.css">
-    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/conditions-B3SznlvQ.css">
+    <title>[Park Name]</title>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <script type="module" crossorigin src="/wdd131-final-project/assets/conditions-B6KhrzoR.js"></script>
+    <link rel="modulepreload" crossorigin href="/wdd131-final-project/assets/setHeaderFooter-eGNdt7RF.js">
+    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/setHeaderFooter-CWCdTTe7.css">
+    <link rel="stylesheet" crossorigin href="/wdd131-final-project/assets/conditions-lGbUZG6v.css">
   </head>
-
   <body>
     <p class="disclaimer">
-      This is not a real NPS website. It is an educational exercise. If you landed here by accident, to find the real website visit
-      <a href="#">[park name]</a>
+      This is not a real NPS website. It is an educational exercise. If you
+      landed here by accident, to find the real website visit
+      <a href="parkUrl">[park name]</a>
     </p>
-
     <div class="skip-links" aria-label="short-cut links" role="navigation">
       <ul>
         <li>
-          <a href="#global-nav-toggle" aria-label="Skip to global NPS navigation">Skip to global NPS navigation</a>
+          <a
+            href="#global-nav-toggle"
+            aria-label="Skip to global NPS navigation"
+            >Skip to global NPS navigation</a
+          >
         </li>
         <li>
-          <a href="#local-nav" aria-label="Skip to local navigation">Skip to local navigation</a>
+          <a href="#local-nav" aria-label="Skip to this park navigation"
+            >Skip to this park navigation</a
+          >
         </li>
         <li>
-          <a href="#main" aria-label="Skip to main content">Skip to main content</a>
+          <a href="#main" aria-label="Skip to the main content"
+            >Skip to the main content</a
+          >
         </li>
         <li>
-          <a href="#park-footer" aria-label="Skip to footer">Skip to footer</a>
+          <a
+            href="#park-footer"
+            aria-label="Skip to this park information section"
+            >Skip to this park information section</a
+          >
         </li>
       </ul>
     </div>
-
     <header>
-      <div class="global-header">
-        <a class="site-title" href="index.html" aria-label="National Park Service Home">
-          <div class="logo" aria-hidden="true"></div>
-          <span>National Park Service</span>
-        </a>
-
+      <section class="global-header">
+        <a href="index.html" class="site-title"
+          ><span class="logo" role="presentation"></span>
+          <span>National Park Service</span></a
+        >
         <div class="global-header__right">
-          <a class="search-icon" href="#" aria-label="Search">
-            <svg class="icon" focusable="false" aria-hidden="true">
-              <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#search"></use>
+          <a class="search-icon" href="#park-footer">
+            <svg class="icon">
+              <use
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#search"
+              ></use>
             </svg>
+            <span class="visually-hidden">Search</span>
           </a>
-
-         <button
-  id="global-nav-toggle"
-  class="global-nav__toggle"
-  aria-expanded="false"
-  aria-label="Open Menu"
->
-  <div class="global-nav__toggle--closed">
-    <svg class="icon" focusable="false" aria-hidden="true">
-      <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#menu"></use>
-    </svg>
-    <span class="visually-hidden">Open</span> Menu
-  </div>
-
-  <div class="global-nav__toggle--open">
-    <svg class="icon" focusable="false" aria-hidden="true">
-      <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#close"></use>
-    </svg>
-    Close
-  </div>
-</button>
+          <button
+            id="global-nav-toggle"
+            class="global-nav__toggle"
+            aria-expanded="false"
+            aria-label="Open Menu"
+          >
+            <div class="global-nav__toggle--closed">
+              <svg class="icon">
+                <use
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#menu"
+                ></use>
+              </svg>
+              <span class="visually-hidden">Open</span> Menu
+            </div>
+            <div class="global-nav__toggle--open">
+              <svg class="icon">
+                <use
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#close"
+                ></use>
+              </svg>
+              Close
+            </div>
+          </button>
         </div>
-      </div>
-
-      <div id="park-header"></div>
-
-      <nav id="local-nav" class="park-nav" aria-label="Park navigation">
-        <ul>
-          <li>
-            <a href="conditions.html">
-              <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#info"></use>
-              </svg>
-              <span>Info</span>
-            </a>
-          </li>
-          <li>
-            <a href="conditions.html">
-              <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#alert"></use>
-              </svg>
-              <span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#location"></use>
-              </svg>
-              <span>Maps</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#calendar"></use>
-              </svg>
-              <span>Calendar</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/wdd131-final-project/images/sprite.symbol.svg#fee-22"></use>
-              </svg>
-              <span>Fees</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="global-nav">
+          <h2 class="global-nav__section-heading section-heading--green">
+            Explore this Park
+          </h2>
+          <ul class="global-nav__list">
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Plan Your Visit</a>
+                <button class="global-nav__split-button__toggle">
+                  <span class="visually-hidden"
+                    >Toggle submenu for Plan Your Visit</span
+                  >
+                  <svg class="icon" role="presentation" focusable="false">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#arrow"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <h2 class="global-nav__section-heading section-heading--blue">
+            Explore the National Park Service
+          </h2>
+          <ul class="global-nav__list">
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Plan Your Visit</a>
+                <button class="global-nav__split-button__toggle">
+                  <span class="visually-hidden"
+                    >Toggle submenu for Plan Your Visit</span
+                  >
+                  <svg class="icon" role="presentation" focusable="false">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#arrow"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+              <ul
+                class="global-nav__submenu"
+                aria-label="Plan Your Visit submenu"
+              >
+                <li><a href="#">Find a Park</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Passes</a></li>
+                <li><a href="#">Trip Ideas</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Learn &amp; Explore</a>
+                <button class="global-nav__split-button__toggle">
+                  <span class="visually-hidden"
+                    >Toggle submenu for Learn and Explore</span
+                  >
+                  <svg class="icon" role="presentation" focusable="false">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#arrow"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+              <ul
+                class="global-nav__submenu"
+                aria-label="Learn and Explore submenu"
+              >
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Discover History</a></li>
+                <li><a href="#">Explore Nature</a></li>
+                <li><a href="#">Kids</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Get Involved</a>
+                <button class="global-nav__split-button__toggle">
+                  <span class="visually-hidden"
+                    >Toggle submenu for Get Involved</span
+                  >
+                  <svg class="icon" role="presentation" focusable="false">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#arrow"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="global-nav__submenu" aria-label="Get Involved submenu">
+                <li><a href="#">Donate</a></li>
+                <li><a href="#">Partner</a></li>
+                <li><a href="#">Volunteer</a></li>
+                <li><a href="#">Work for Us</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <section id="park-header">
+        <div class="hero-banner">
+          <img src="" alt="" />
+          <div class="hero-banner__content">
+            <!-- <a href="#" class="hero-banner__title">Yellowstone</a>
+            <p class="hero-banner__subtitle">
+              <span>National Park</span>
+              <span>ID, MT, WY</span>
+            </p> -->
+          </div>
+        </div>
+        <nav class="park-nav">
+          <ul>
+            <li>
+              <a href="#">
+                <span>Info</span>
+                <svg class="icon" role="presentation" focusable="false">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#info"
+                  ></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>Alerts</span>
+                <svg class="icon" role="presentation" focusable="false">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#alert"
+                  ></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>Maps</span>
+                <svg class="icon" role="presentation" focusable="false">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#location"
+                  ></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>Calendar</span>
+                <svg class="icon" role="presentation" focusable="false">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#calendar"
+                  ></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>Fees</span>
+                <svg class="icon" role="presentation" focusable="false">
+                  <use
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/wdd131-final-project/assets/sprite.symbol-D5XSI_4v.svg#fee-22"
+                  ></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </header>
-
     <main id="main">
       <h1>Current Conditions</h1>
-
-      <section class="alerts" aria-labelledby="alerts-title">
-        <h2 id="alerts-title">Alerts</h2>
-        <ul class="alerts-list"></ul>
+      <section class="alerts">
+        <h2>Alerts</h2>
+        <ul></ul>
       </section>
-
-      <section class="visitor" aria-labelledby="visitor-title">
-        <h2 id="visitor-title">Visitor Services</h2>
+      <section class="visitor">
+        <h2>Visitor Services</h2>
         <details name="current-details">
           <summary>Visitor Centers</summary>
-          <ul class="visitor-centers"></ul>
+          <ul></ul>
         </details>
       </section>
-
-      <section class="activities" aria-labelledby="activities-title">
-        <h2 id="activities-title">Activities</h2>
+      <section class="activities">
+        <h2>Activities</h2>
         <details name="current-details">
           <summary>All Activities</summary>
-          <ul class="activities-list"></ul>
+          <ul></ul>
         </details>
       </section>
     </main>
-
-    <footer id="park-footer"></footer>
+    <footer id="park-footer" class="park-footer"></footer>
   </body>
 </html>
