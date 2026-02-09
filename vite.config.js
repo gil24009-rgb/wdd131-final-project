@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        conditions: resolve(__dirname, "conditions.html")
+        conditions: resolve(__dirname, "conditions.html"),
+        visitor_center: resolve(__dirname, "src/visitor-center.html")
       }
     }
   }

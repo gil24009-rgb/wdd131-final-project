@@ -1,54 +1,26 @@
-/* Base */
-* {
-  box-sizing: border-box;
+/* footer styles */
+
+.park-footer {
+  background-image: url("../images/topo_pattern.png");
+  padding: 1.5rem;
 }
 
-body {
-  font-family: var(--bs-body-font-family);
-  font-size: 18px;
-  line-height: 1.75;
-  margin: 0;
+.park-footer h3 {
+  font-family: var(--bs-font-serif);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-top: 0.5rem;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.park-footer h4 {
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8em;
 }
 
-a:link,
-a:visited {
-  color: var(--bs-link-color);
-}
-
-a:hover {
-  color: var(--bs-link-hover-color);
-}
-
-/* Skip links */
-.skip-links ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.skip-links a {
-  font-size: 0.6875rem;
-  position: absolute;
-  right: 20px;
-  top: -200px;
-  z-index: -1;
-  background: white;
-  padding: 6px 10px;
-}
-
-.skip-links a:focus {
-  top: 2px;
-  z-index: 9999;
-  outline: 2px solid var(--bs-link-color);
-}
-
-/* Disclaimer */
-.disclaimer {
-  margin: 0;
-  padding: 10px 16px;
+.park-footer p {
+  font-size: 0.8em;
+  line-height: 1;
+  color: var(--bs-grey-2);
+  margin: 0.5rem 0;
 }

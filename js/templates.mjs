@@ -1,81 +1,149 @@
-// templates.mjs
-// HTML template helpers
+import spritePath from "../images/sprite.symbol.svg";
 
-export function mediaCardTemplate(item) {
-  return `<article class="media-card">
-    <a class="media-card__link" href="${item.link}">
-      <img class="media-card__img" src="${item.image}" alt="${item.alt || ""}" loading="lazy" />
-      <h2 class="media-card__title">${item.name}</h2>
-      <p class="media-card__desc">${item.description}</p>
+export function parkInfoTemplate(info) {
+  return `<a href="/" class="hero-banner__title">${info.name}</a>
+    <p class="hero-banner__subtitle">
+      <span>${info.designation}</span>
+      <span>${info.states}</span>
+    </p>`;
+}
+
+export function mediaCardTemplate(info) {
+  return `<div class="media-card">
+    <a href="${info.link}">
+    <img src="${info.image}" alt="${info.name}" class="media-card__img">
+    <h3 class="media-card__title">${info.name}</h3>
     </a>
-  </article>`;
+   <p>${info.description}</p>
+     </div>`;
 }
-
-export function parkInfoTemplate(data) {
-  const heroImage = data.images?.[0]?.url || "/images/topo_pattern.png";
-  const heroAlt = data.images?.[0]?.altText || data.fullName;
-
-  return `<section class="hero-banner">
-    <img class="hero-banner__image" src="${heroImage}" alt="${heroAlt}" />
-    <div class="hero-banner__content">
-      <div>
-        <p class="hero-banner__subtitle">National Park Service</p>
-        <p class="hero-banner__subtitle">${data.states}</p>
-      </div>
-      <h1 class="hero-banner__title">${data.fullName}</h1>
-    </div>
-  </section>`;
+function getMailingAddress(addresses) {
+  const mailing = addresses.find((address) => address.type === "Mailing");
+  return mailing;
 }
+function getVoicePhone(numbers) {
+  const voice = numbers.find((number) => number.type === "Voice");
+  return voice.phoneNumber;
+}
+export function footerTemplate(info) {
+  const mailing = getMailingAddress(info.addresses);
+  const voice = getVoicePhone(info.contacts.phoneNumbers);
 
-export function footerTemplate(data) {
-  const addr = data.addresses?.find((a) => a.type === "Physical") || data.addresses?.[0];
-
-  const street = addr ? `${addr.line1 || ""} ${addr.line2 || ""}`.trim() : "";
-  const cityStateZip = addr ? `${addr.city || ""}, ${addr.stateCode || ""} ${addr.postalCode || ""}`.trim() : "";
-
-  return `<div class="contact">
+  return `<section class="contact">
     <h3>Contact Info</h3>
     <h4>Mailing Address:</h4>
-    <p>${street}</p>
-    <p>${cityStateZip}</p>
+    <div><p>${mailing.line1}<p>
+    <p>${mailing.city}, ${mailing.stateCode} ${mailing.postalCode}</p></div>
     <h4>Phone:</h4>
-    <p>${data.contacts?.phoneNumbers?.[0]?.phoneNumber || "Not Available"}</p>
-  </div>`;
+    <p>${voice}</p>
+  </section>
+    `;
 }
 
 export function alertTemplate(alert) {
-  let alertType;
-
-  if (alert.category === "Park Closure") {
-    alertType = "closure";
-  } else {
-    alertType = alert.category.toLowerCase();
+  let alertType = "";
+  // most of the alerts are one word and line up with the icons nicely. "Park Closure" is the exception
+  switch (alert.category) {
+    case "Park Closure":
+      alertType = "closure";
+      break;
+    default:
+      alertType = alert.category.toLowerCase();
   }
-
-  const spriteHref = `${import.meta.env.BASE_URL}images/sprite.symbol.svg#alert-${alertType}`;
-
   return `<li class="alert">
-    <svg class="icon" focusable="false" aria-hidden="true">
-      <use xlink:href="${spriteHref}"></use>
-    </svg>
-    <div>
-      <h3 class="alert-${alertType}">${alert.title}</h3>
-      <p>${alert.description}</p>
-    </div>
-  </li>`;
+  <svg class="icon" focusable="false" aria-hidden="true">
+    <use xlink:href="${spritePath}#alert-${alertType}"></use>
+  </svg>
+  <div>
+    <h3 class="alert-${alertType}">${alert.title}</h3>
+    <p>${alert.description}</p>
+  </div></li>`;
 }
 
 export function visitorCenterTemplate(center) {
-  const desc = center.description || "No description provided.";
-  const directions = center.directionsInfo || "";
-
   return `<li class="visitor-center">
-    <h3>${center.name}</h3>
-    <p>${desc}</p>
-    ${directions ? `<p class="directions">${directions}</p>` : ""}
+  <h4><a href="visitor-center.html?id=${center.id}">${center.name}</a></h4>
+  <p>${center.description}</p>
+  <p>${center.directionsInfo}</p>
   </li>`;
 }
 
-export function activityTemplate(activity) {
-  return `<li>${activity.name}</li>`;
+export function activityListTemplate(activities) {
+  return activities.map((activity) => `<li>${activity.name}</li>`).join("");
+}
+
+export function iconTemplate(iconId) {
+  return `<svg class="icon" role="presentation" focusable="false">
+            <use
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xlink:href="/images/sprite.symbol.svg#${iconId}"
+            ></use>
+          </svg>`;
+}
+
+export function vcDetailsTemplate(elementId, summaryText, iconId, content) {
+  return `<details name="vc-details" id="${elementId}">
+          <summary>
+            ${iconTemplate(iconId)}
+            ${summaryText}
+          </summary>
+          ${content}
+        </details>`;
+}
+
+export function vcTitleTemplate(text) {
+  return `${iconTemplate("ranger-station")} ${text}`;
+}
+
+export function vcInfoTemplate(data) {
+  const image = data.images[0];
+  return `<figure>
+          <img src="${image.url}" alt="${image.altText}" />
+          <figcaption>${image.caption} <span>${image.credit}</span></figcaption>
+        </figure>
+        <p>${data.description}</p>`;
+}
+export function listTemplate(data, contentTemplate) {
+  const html = data.map(contentTemplate);
+  return `<ul>${html.join("")}</ul>`;
+}
+
+function vcAddressTemplate(data) {
+  return `<section>
+            <h3>${data.type} Address</h3>
+            <address>
+              ${data.line1}<br />
+              ${data.city}, ${data.stateCode} ${data.postalCode}
+            </address>
+          </section>`;
+}
+
+export function vcAddressesListTemplate(data) {
+  const physical = data.find((address) => address.type === "Physical");
+  const mailing = data.find((address) => address.type === "Mailing");
+  let html = vcAddressTemplate(physical);
+  if (mailing) {
+    html += vcAddressTemplate(mailing);
+  }
+  return html;
+}
+export function vcAmenityTemplate(data) {
+  return `<li>${data}</li>`;
+}
+export function vcDirectionsTemplate(data) {
+  return `<p>${data}</p>`;
+}
+export function vcContactsTemplate(data) {
+  return `<section class="vc-contact__email">
+            <h3>Email Address</h3>
+            <a href="email:${data.emailAddresses[0].emailAddress}">Send this visitor center an email</a>
+          </section>
+          <section class="vc-contact__phone">
+            <h3>Phone numbers</h3>
+            <a href="tel:+1${data.phoneNumbers[0].phoneNumber}">${data.phoneNumbers[0].phoneNumber}</a>
+          </section>`;
+}
+
+export function vcImageTemplate(data) {
+  return `<li><img src="${data.url}" alt="${data.altText}" ><li>`;
 }
